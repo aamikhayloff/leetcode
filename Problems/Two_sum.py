@@ -1,13 +1,6 @@
 class Solution:
-    def twoSum(self, nums, target):
-
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        o = {}
         for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                if (nums[i] + nums[j])  == target:
-                    return[i, j]
-
-        return[]
-    """
-    Some text
-    
-    """
+            if nums[i] in o: return[i, o[nums[i]]]
+            o[target - nums[i]] = i
