@@ -1,0 +1,7 @@
+[tool.black]
+line-length = 119
+target-version = ['py311']
+include = '\.pyi?$'
+
+[tool.ruff]
+line-length = 120
