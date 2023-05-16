@@ -1,28 +1,27 @@
-# copy-paste .pre-commit-config.yaml
-# ....
-exclude: "^docs/|/migrations/"
-default_stages: [commit]
+name: Format code
 
-repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
-    hooks:
-      - id: trailing-whitespace
-      - id: end-of-file-fixer
-      - id: check-yaml
-      - id: check-merge-conflict
-      - id: detect-private-key
-      - id: debug-statements
+on:
+  push:
+    branches: [ master ]
 
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
-    # Ruff version.
-    rev: "v0.0.236"
-    hooks:
-      - id: ruff
-
-  - repo: https://github.com/psf/black
-    rev: 23.1.0
-    hooks:
-      - id: black
-        exclude: ^.*\b(migrations)\b.*$
- 
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Format code with black
+        run: |
+          pip install black
+          black .
+      - name: Check code with ruff
+        run: |
+          pip install ruff
+          ruff .     
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v4
+        with:
+          author_name: ${{ github.actor }}
+          author_email: ${{ github.actor }}@users.noreply.github.com
+          message: "Format code with black"
+          add: "."
+          branch: ${{ github.ref }}
