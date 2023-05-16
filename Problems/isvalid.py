@@ -13,7 +13,7 @@ class Solution:
                 res.pop()
             else:
                 res.append(i
-        if not res:
+        if not res
             return True
         else:
             return False
