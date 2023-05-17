@@ -9,3 +9,5 @@ repos:
     rev: 23.3.0
     hooks:
     -   id: black
+        log_file: logs/pre-commit.log
+        args: [--include=\.pyi?$, --verbose, --line-length=110, --target-version=py39]
