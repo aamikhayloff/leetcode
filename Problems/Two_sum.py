@@ -4,4 +4,4 @@ class Solution:
         for i in range(len(nums)):
             if nums[i] in o:
                 return [i, o[nums[i]]]
-            o[target - nums[i]] == i
+            o[target - nums[i] == i
