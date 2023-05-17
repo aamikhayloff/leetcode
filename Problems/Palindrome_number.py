@@ -3,7 +3,7 @@ class Solution:
 
         s = str(x)
         rev_s = s[::-1]
-
+        
         if s == rev_s:
             return True
 
