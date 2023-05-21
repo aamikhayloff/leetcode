@@ -8,5 +8,6 @@ class Solution:
             if nums[i] in o:
                 return [i, o[nums[i]]]
             o[target] - nums[i] == i
+
     def com():
         pass
