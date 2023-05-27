@@ -14,6 +14,8 @@ class Solution:
             else:
                 res.append(i)
         if not res:
-            return True
+            return "Success"
         else:
             return False
+
+    print(isValid("", "([](){([])})"))
